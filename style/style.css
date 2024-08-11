@@ -1,0 +1,278 @@
+/* General styles */
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: sans-serif;
+    overflow-x: hidden;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+header {
+    transition: background-color 0.3s, box-shadow 0.3s;
+    position: fixed; /* Menempel di atas halaman */
+    width: 100%;
+    height: 80px;
+    padding: 20px;
+    top: 0;
+    left: 0;
+    z-index: 1000; /* Pastikan header di atas elemen lainnya */
+}
+
+header.transparent {
+    background-color: transparent; /* Transparansi saat scroll */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Bayangan saat scroll */
+}
+
+header.at-top {
+    background-color: rgba(255, 94, 0, 1); /* Warna baru saat scroll ke atas */
+}
+
+header .logo {
+    float: left;
+    margin: -10px;
+}
+
+header .logo img {
+    width: 140px;
+    height: 50px;
+}
+
+header nav {
+    float: right;
+}
+
+header ul {
+    list-style: none;
+}
+
+header li {
+    display: inline-block;
+    margin-left: 30px;
+    margin: 10px;
+}
+
+header a {
+    text-decoration: none;
+    color: white;
+}
+
+.hero {
+    position: relative;
+    top: 80px;
+    left: 0px;
+    width: 1520px;
+    height: 446px;
+    padding: 100px 0;
+    background-image: url(/assets/image.jpg);
+    background-size: cover;
+    background-position: center;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    color: white;
+}
+
+.hero-content::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
+    z-index: -1;
+    transform: translateZ(-1px) scale(1.5);
+    will-change: transform;
+}
+
+.hero h1 {
+    font-size: 3rem;
+    margin-bottom: 10px;
+}
+
+.hero p {
+    font-size: 1.2rem;
+}
+
+.ideas {
+    font-size: 40px;
+    font-weight: 1;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.content {
+    padding: 140px 0;
+}
+
+.content-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.content-header-left {
+    font-size: 20px;
+}
+
+.content-header-right {
+    display: flex;
+    align-items: center;
+}
+
+.show-per-page,
+.sort-by {
+    margin-left: 20px;
+}
+
+.show-per-page label,
+.sort-by label {
+    margin-right: 5px;
+    font-size: 20px;
+}
+
+.show-page {
+    font-size: 20px;
+    border-radius: 20px;
+    width: 120px;
+    height: 40px;
+}
+
+/* Articles section */
+.articles {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 39px;
+}
+
+.article {
+    width: calc(22% - 5px); /* Adjust width for 5 items per row */
+    height: 300px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px;
+    overflow: hidden;
+}
+
+.article img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    lazy-load: auto; /* Lazy load for images */
+}
+
+.article-content {
+    padding: 10px;
+    color: #777;
+    box-shadow: 0 2px 8px rgba(108, 49, 49, 0.1);
+}
+
+/* Title with ellipsis */
+.article-content h3 {
+    font-size: 1.2rem;
+    margin-top: 5px;
+    height: 3.6em; /* Approx. 3 lines */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+}
+
+/* Pagination styling */
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+}
+
+.pagination a {
+    display: inline-block;
+    padding: 8px 12px;
+    margin: 0 5px;
+    text-decoration: none;
+    color: #333;
+    border-radius: 8px;
+}
+
+.pagination a.active {
+    background-color: #ff5e00;
+    color: white;
+}
+
+.pagination-prev,
+.pagination-next {
+    border: none;
+    background-color: transparent;
+    font-size: 1.2rem;
+}
+
+/* Footer styling */
+footer {
+    background-color: #ff5e00;
+    padding: 20px 0;
+    color: white;
+    text-align: center;
+}
+
+/* Responsive styles */
+@media screen and (max-width: 768px) {
+    .article {
+        width: 100%;
+    }
+
+    header {
+        transition: background-color 0.3s, box-shadow 0.3s;
+        position: fixed; /* Menempel di atas halaman */
+        width: 100%;
+        height: 130px;
+        padding: 20px;
+        top: 0;
+        left: 0;
+        z-index: 1000; /* Pastikan header di atas elemen lainnya */
+    }
+    
+    .hero {
+        position: relative;
+        top: 130px;
+        left: 0px;
+        width: 360px;
+        height: 100px;
+        padding: 100px 0;
+        background-image: url(/assets/image.jpg);
+        background-size: cover;
+        background-position: center;
+    }
+
+    .ideas {
+        position: relative;
+        top: -20px;
+        font-size: 20px;
+        font-weight: 1;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+    .show-page {
+        font-size: 20px;
+        border-radius: 20px;
+        width: 110px;
+        height: 30px;
+    }
+}
